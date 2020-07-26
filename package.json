@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "description": "React Component Library made for Bannerwave Projects",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BannerWave-LLC/bw_react_component_library.git"
@@ -15,9 +12,5 @@
   "bugs": {
     "url": "https://github.com/BannerWave-LLC/bw_react_component_library/issues"
   },
-  "homepage": "https://github.com/BannerWave-LLC/bw_react_component_library#readme",
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
-  "private": "true"
+  "homepage": "https://github.com/BannerWave-LLC/bw_react_component_library#readme"
 }
