@@ -1,0 +1,142 @@
+@import '../../vars';
+.input {
+        
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+        background-color:transparent !important;
+        -webkit-box-shadow: 0 0 0px 1000px rgba(0,0,0,0) inset !important;
+        box-shadow: 0 0 0px 1000px rgba(0,0,0,0) inset !important;
+        transition: background-color 5000s ease-in-out 0s;
+        overflow:auto;
+    }
+
+    :global .input {
+        position:relative;
+        background:#fff;
+        border:1px solid rgba(0,0,0,.2);
+        border-radius: 5px;
+        padding:12px 20px;
+        margin:0 0 20px;
+
+        @import 'phone';
+        
+        &.hasContent {
+            label {
+                top:-7px;
+                left:7px;
+                transform: scale(0.7);
+                transform-origin: 0 0;
+                z-index:6;
+
+                &:after {
+                    content:"";
+                    z-index:-1;
+                    left:0;
+                    position: absolute;
+                    width:100%;
+                    height:100%;
+                    background:#fff;
+                }
+            }
+        }
+        &.focused {
+            border:1px solid $brandBlue;
+            box-shadow: 0px 0px 1px 1px $brandBlue;
+            label {
+                top:-7px;
+                left:7px;
+                transform: scale(0.7);
+                transform-origin: 0 0;
+                color:$brandBlue;
+                
+                &:after {
+                    content:"";
+                    z-index:-1;
+                    left:0;
+                    position: absolute;
+                    width:100%;
+                    height:100%;
+                    background:#fff;
+                }
+            }
+        }
+        &.error {
+            border: 1px solid red;
+            box-shadow: 0 0 1px 1px red;
+            label {
+                color:red;
+            }
+        }
+
+        label {
+            position:absolute;
+            left:15px;
+            top:15px;
+            padding:1px 7px;
+            font-size:16px;
+            line-height:16px;
+            color:rgba(0,0,0,.4);
+            pointer-events: none;
+            @include transition(all .2s ease-out);
+            span {
+                //color:$errorRed;
+                padding-left:5px;
+            }
+        }
+        input {
+            background:transparent;
+            border:none;
+            outline:none;
+            font-size:16px;
+            line-height:16px;
+            color:rgba(0,0,0,.7);
+            margin:0px 0 0px;
+            height:23px;
+        }
+        @keyframes onAutoFillStart {
+        }    
+        @keyframes onAutoFillCancel {
+        }
+        input:-webkit-autofill {
+            animation-name: onAutoFillStart;
+            transition: background-color 50000s ease-in-out 0s;
+        }
+        
+        input:not(:-webkit-autofill) {
+            animation-name: onAutoFillCancel;
+        }
+
+        &.tel {
+            padding:0;
+            .react-tel-input {
+                padding: 6px 0px;
+                box-sizing: border-box;
+                display: table;
+
+                .form-control {
+                    border:0;
+                    box-shadow: 0 0 0 0;
+                    width:100%;
+                    box-sizing: border-box;
+                    font-size:16px;
+                    line-height:16px;
+                }
+                .flag-dropdown {
+                    &:before {
+                        display:none;
+                    }
+                }
+            }
+        }
+    }
+    
+}
+
+//@import 'phone.module.scss';

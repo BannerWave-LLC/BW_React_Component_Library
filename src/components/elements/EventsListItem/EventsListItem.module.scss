@@ -1,0 +1,45 @@
+@import '../../vars';
+
+.item {
+    :global .container {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+    }
+    
+    :global .date {
+        width: 30%;
+        background-color: rgba(29, 127, 130, 0.5);
+        text-align: center;
+
+        .day {
+            font-family: $montserrat;
+            font-weight: 700;
+            font-size: 68px;
+            line-height: 38px;
+            color: white;
+            margin-bottom: 0;
+        }
+
+        .month {
+            font-family: $montserrat;
+            font-weight: 700;
+            font-size: 38px;
+            line-height: 38px;
+            color: white;
+            margin-top: 5px;
+        }
+    }
+
+    :global .info {
+        width: 50%;
+
+        h1 {
+            
+        }
+    }
+
+    :global .cta {
+        width: 33%;
+    }
+}
