@@ -12,5 +12,29 @@
   "bugs": {
     "url": "https://github.com/BannerWave-LLC/bw_react_component_library/issues"
   },
-  "homepage": "https://github.com/BannerWave-LLC/bw_react_component_library#readme"
+  "homepage": "https://github.com/BannerWave-LLC/bw_react_component_library#readme",
+  "dependencies": {
+    "@babel/core": "^7.11.1",
+    "@invisionapp/dsm-storybook": "0.0.131",
+    "@storybook/addon-actions": "^5.3.19",
+    "@storybook/addon-knobs": "^5.3.19",
+    "@storybook/addon-links": "^5.3.19",
+    "@storybook/addon-options": "^5.3.19",
+    "@storybook/addons": "^5.3.19",
+    "@storybook/preset-scss": "^1.0.2",
+    "@storybook/react": "^5.3.19",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.2.1",
+    "node-sass": "^4.14.1",
+    "react-device-detect": "^1.13.1",
+    "react-phone-input-2": "^2.13.7",
+    "sass-loader": "^9.0.3",
+    "style-loader": "^1.2.1"
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
+    "dsm-storybook:publish": "dsm-storybook publish",
+    "dsm-storybook:preview": "dsm-storybook preview"
+  }
 }

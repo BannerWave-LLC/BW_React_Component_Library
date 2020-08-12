@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from 'react'
 import PhoneInput from 'react-phone-input-2'
 import { isFirefox } from 'react-device-detect'
 
@@ -10,7 +10,8 @@ class Input extends Component {
         super(props)
         this.state = {
             focused: false,
-            hasAutofilled: false
+            hasAutofilled: false,
+            value: ''
         }
     }
 
@@ -37,17 +38,23 @@ class Input extends Component {
 
     onChangeInput = (e) => {
         if (e.target) {
-            this.props.onChange(e.target.value)
+            if (this.props.onChange) {
+                this.props.onChange(e.target.value)
+            } else {
+                this.setState({value:e.target.value})
+            }
         }
     }
 
 
     render() {
+        const value = (this.props.value ? this.props.value : this.state.value)
+
         let inputClass = `${this.props.className} input`
         if (this.state.focused) {
             inputClass += " focused"
         }
-        if (this.props.value !== '' || this.props.type === 'tel') {
+        if (value !== '' || this.props.type === 'tel') {
             inputClass += " hasContent"
         }
         if (this.state.hasAutofilled) {
@@ -59,17 +66,26 @@ class Input extends Component {
         if (this.props.error) {
             inputClass += " error"
         }
+
+        let inputStyle = {}
+        let labelStyle = {}
+        if (this.state.focused && this.props.color) {
+            inputStyle.borderColor = this.props.color
+            inputStyle.boxShadow = '0px 0px 1px 1px '+this.props.color
+            labelStyle.color = this.props.color
+        }
+
         return (
             <div className={scss.input}>
-                <div className={inputClass} ref="inputWrapper">
-                    <label>{this.props.label}{(this.props.required && <span>*</span>)}</label>
+                <div className={inputClass} ref="inputWrapper" style={inputStyle} >
+                    <label style={labelStyle}>{this.props.label}{(this.props.required && <span>*</span>)}</label>
                     {(this.props.type === 'tel' ?
                         <PhoneInput
                             id={this.props.className}
                             country={'us'}
                             onKeyDown={this.props.onKeyDown}
                             onAnimationStart={this.handleAutoFill}
-                            value={this.props.value}
+                            value={value}
                             onFocus={this.onFocus}
                             onBlur={this.onBlur}
                             autoComplete="false"
@@ -84,7 +100,7 @@ class Input extends Component {
                             onBlur={this.onBlur}
                             onChange={this.onChangeInput}
                             onAnimationStart={this.handleAutoFill}
-                            value={this.props.value}
+                            value={value}
                             onKeyDown={this.props.onKeyDown}
                         />
                     )}
