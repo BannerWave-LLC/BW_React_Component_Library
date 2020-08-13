@@ -3,5 +3,5 @@
     "dsmHost": "bannerwave.invisionapp.com",
     "organization": "banner-wave",
     "outputDir": ".dsm",
-    "storyPath": "stories/*.stories.js"
+    "storyPath": "src/stories/*.stories.js"
 }
