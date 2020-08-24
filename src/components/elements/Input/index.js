@@ -76,12 +76,11 @@ class Input extends Component {
         }
 
         return (
-            <div className={`${scss.input} input`}>
-                <div className={inputClass} ref="inputWrapper" style={inputStyle} >
+            <div className={`${scss.input} ${this.props.className} input_wrapper`}>
+                <div className={`${inputClass} input`} ref="inputWrapper" style={inputStyle} >
                     <label style={labelStyle}>{this.props.label}{(this.props.required && <span>*</span>)}</label>
                     {(this.props.type === 'tel' ?
                         <PhoneInput
-                            id={this.props.className}
                             country={'us'}
                             onKeyDown={this.props.onKeyDown}
                             onAnimationStart={this.handleAutoFill}
@@ -93,7 +92,6 @@ class Input extends Component {
                         />
                         :
                         <input
-                            id={this.props.className}
                             autoComplete="false"
                             type={this.props.type}
                             onFocus={this.onFocus}
