@@ -41,7 +41,7 @@ class Input extends Component {
             if (this.props.onChange) {
                 this.props.onChange(e.target.value)
             } else {
-                this.setState({value:e.target.value})
+                this.setState({ value: e.target.value })
             }
         }
     }
@@ -71,12 +71,12 @@ class Input extends Component {
         let labelStyle = {}
         if (this.state.focused && this.props.color) {
             inputStyle.borderColor = this.props.color
-            inputStyle.boxShadow = '0px 0px 1px 1px '+this.props.color
+            inputStyle.boxShadow = '0px 0px 1px 1px ' + this.props.color
             labelStyle.color = this.props.color
         }
 
         return (
-            <div className={scss.input}>
+            <div className={`${scss.input} input`}>
                 <div className={inputClass} ref="inputWrapper" style={inputStyle} >
                     <label style={labelStyle}>{this.props.label}{(this.props.required && <span>*</span>)}</label>
                     {(this.props.type === 'tel' ?

@@ -106,4 +106,4 @@ dist
 .dsm
 node_modules
 storybook-static
-storyies-templates
+stories_templates

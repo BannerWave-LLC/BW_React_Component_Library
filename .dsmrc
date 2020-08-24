@@ -1,7 +1,0 @@
-{
-    "authToken": "B1g-q6_xP",
-    "dsmHost": "bannerwave.invisionapp.com",
-    "organization": "banner-wave",
-    "outputDir": ".dsm",
-    "storyPath": "src/stories/*.stories.js"
-}
