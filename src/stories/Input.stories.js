@@ -10,11 +10,16 @@ export default {
       control: {
         type: 'color'
       },
-      type: {
-        control: {
-          type: 'select',
-          options: ['tel', 'text']
-        }
+    },
+    type: {
+      control: {
+        type: 'select',
+        options: ['tel', 'text']
+      }
+    },
+    label: {
+      control: {
+        type: 'text'
       }
     }
   }

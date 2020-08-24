@@ -1,3 +1,3 @@
-import Button from './src/components/elements/Button'
+import Input from './src/components/elements/Input'
 
-module.exports.Button = Button
+module.exports.Input = Input
