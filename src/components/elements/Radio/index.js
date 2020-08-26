@@ -25,7 +25,7 @@ class Radio extends Component {
         const value = (this.props.value ? this.props.value : this.state.value)
         const { values, direction, color } = this.props
         return (
-            <div className={`${scss.radio} radio_wrapper`} style={ {color: color} } >
+            <div className={`${scss.radio} ${direction + 'Radio'} radio_wrapper`}  >
                 {(values && values.map((val, index) => {
                     return <div
                         onClick={this.onClick}
@@ -33,6 +33,7 @@ class Radio extends Component {
                         className={(value === val ? `${scss.selected} ${scss.item}` : scss.item)}
                         value={val}>{val}</div>
                 }))}
+                {console.log(direction)}
             </div>
         )
     }

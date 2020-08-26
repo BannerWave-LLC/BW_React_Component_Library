@@ -1,7 +1,6 @@
 
 .radio {
     display: flex;
-
     .item {
         position: relative;
         padding: 15px 0 15px 40px;
@@ -43,4 +42,13 @@
             }
         }
     }
+}
+
+:global .horizontalRadio {
+    display: flex;
+    flex-direction: row;
+}
+:global .verticalRadio {
+    display: flex;
+    flex-direction: column;
 }
