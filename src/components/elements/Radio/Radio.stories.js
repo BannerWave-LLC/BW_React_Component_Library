@@ -1,8 +1,8 @@
 import React from 'react'
-import Radio from './../components/elements/Radio'
+import Radio from '.'
 
 export default {
-  title: 'Form Elements/Radio',
+  title: 'Form/Radio',
   component: Radio,
   argTypes: {
     color: {

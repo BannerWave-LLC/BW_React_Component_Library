@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PhoneInput from 'react-phone-input-2'
 import { isFirefox } from 'react-device-detect'
+import PropTypes from 'prop-types'
 
 import scss from './input.module.scss'
 
@@ -10,8 +11,7 @@ class Input extends Component {
         super(props)
         this.state = {
             focused: false,
-            hasAutofilled: false,
-            value: ''
+            hasAutofilled: false
         }
     }
 
@@ -38,17 +38,14 @@ class Input extends Component {
 
     onChangeInput = (e) => {
         if (e.target) {
-            if (this.props.onChange) {
-                this.props.onChange(e.target.value)
-            } else {
-                this.setState({ value: e.target.value })
-            }
+            this.props.onChange(e.target.value)
         }
     }
 
 
+
     render() {
-        const value = (this.props.value ? this.props.value : this.state.value)
+        const { value, onKeyDown, onChange } = this.props
 
         let inputClass = `${this.props.className} input`
         if (this.state.focused) {
@@ -82,13 +79,13 @@ class Input extends Component {
                     {(this.props.type === 'tel' ?
                         <PhoneInput
                             country={'us'}
-                            onKeyDown={this.props.onKeyDown}
+                            onKeyDown={onKeyDown}
                             onAnimationStart={this.handleAutoFill}
                             value={value}
                             onFocus={this.onFocus}
                             onBlur={this.onBlur}
                             autoComplete="false"
-                            onChange={this.props.onChange}
+                            onChange={onChange}
                         />
                         :
                         <input
@@ -99,13 +96,36 @@ class Input extends Component {
                             onChange={this.onChangeInput}
                             onAnimationStart={this.handleAutoFill}
                             value={value}
-                            onKeyDown={this.props.onKeyDown}
+                            onKeyDown={onKeyDown}
                         />
                     )}
                 </div>
             </div>
         )
     }
+}
+
+Input.propTypes = {
+    /** Value of the input field */
+    value: PropTypes.string.isRequired,
+
+    /** Function that fires every time the value of the field is changed. */
+    onChange: PropTypes.func.isRequired,
+
+    /** Type of input field value, still need to implement password, and other */
+    type: PropTypes.oneOf(["tel", "text"]).isRequired,
+
+    /** Placeholder text when field is empty, then animates as a top label after user focuses input field. */
+    label: PropTypes.string.isRequired,
+
+    /** CSS class name for input element so you can target and adjust css if important */
+    className: PropTypes.string,
+
+    /** Adds Astresk if the field is a required field. */
+    required: PropTypes.bool,
+
+    /** Function that fires every time the key is pressed, useful for detecting if a user presses Enter to submit a form. */
+    onKeyDown: PropTypes.func
 }
 
 export default Input
