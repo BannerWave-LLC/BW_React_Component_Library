@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+$blue:  #0076ce;
+$Roboto: 'Roboto', sans-serif;
+
+.dellButton {
+    .button {
+        background-color: $blue;
+        display: inline-block;
+        border-radius: 3px;
+        color: white;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+        font-family: $Roboto;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 500;
+    }
+    :global .medium {
+        padding: 14px 0px;
+        width: 155px;
+    }
+
+    :global .small {
+        padding: 9px 0px;
+        width: 81px;
+    }
+}
